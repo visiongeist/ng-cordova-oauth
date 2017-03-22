@@ -1169,7 +1169,7 @@
               redirect_uri = options.redirect_uri;
             }
           }
-          var browserRef = window.cordova.InAppBrowser.open('https://www.linkedin.com/uas/oauth2/authorization?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&scope=' + appScope.join(" ") + '&response_type=code&state=' + state, '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
+          var browserRef = window.cordova.InAppBrowser.open('https://www.linkedin.com/uas/oauth2/authorization?client_id=' + clientId + '&redirect_uri=' + redirect_uri + '&scope=' + appScope.join(" ") + '&response_type=code&state=' + state, '_blank', 'location=no');
           browserRef.addEventListener('loadstart', function(event) {
             if((event.url).indexOf(redirect_uri) === 0) {
               try {
@@ -2925,7 +2925,7 @@
                   deferred.reject('Oauth request token was not received');
                 }
                 var oauthTokenSecret = parameterMap.oauth_token_secret;
-                var browserRef = window.cordova.InAppBrowser.open('https://api.xing.com/v1/authorize?oauth_token=' + parameterMap.oauth_token, '_blank', 'location=no,clearsessioncache=yes,clearcache=yes');
+                var browserRef = window.cordova.InAppBrowser.open('https://api.xing.com/v1/authorize?oauth_token=' + parameterMap.oauth_token, '_blank', 'location=no');
                 browserRef.addEventListener('loadstart', function(event) {
                   if((event.url).indexOf(redirect_uri) === 0) {
                     var callbackResponse = (event.url).split('?')[1];
